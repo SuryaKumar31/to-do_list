@@ -1,0 +1,43 @@
+.searchItems--form {
+  position: relative;
+}
+.searchItems--input {
+  width: 86%;
+  border-radius: 10em;
+  background-color: white;
+  border-top: 1px solid silver;
+  border-left: 1px solid silver;
+  border-bottom: 1px solid silver;
+  border-right: 1px solid silver;
+  color: black;
+}
+.searchIcon {
+  position: absolute;
+  cursor: pointer;
+  right: 90px;
+  top: 16px;
+}
+
+@media (max-width: 638px) {
+  .searchIcon {
+    right: 70px;
+  }
+}
+
+@media (max-width: 531px) {
+  .searchIcon {
+    right: 60px;
+  }
+}
+@media (max-width: 407px) {
+  .searchIcon {
+    right: 62px;
+    top: 14px;
+  }
+}
+@media (max-width: 320px) {
+  .searchIcon {
+    right: 50px;
+    top: 14px;
+  }
+}

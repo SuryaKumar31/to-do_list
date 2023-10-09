@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap");
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  background-color: beige;
+}
+
+.App {
+  width: 95%;
+  max-width: 700px;
+  margin: 0.4rem auto;
+  border-radius: 0.5em;
+  background-color: whitesmoke;
+  padding: 0.4rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+.App::before,
+.App::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  border-radius: inherit;
+  animation: rotation 20s linear infinite;
+}
+
+.App::after {
+  filter: blur(1.7rem);
+}
+
+.b-o-p {
+  padding: 1.3em;
+  border: none;
+  outline: none;
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
