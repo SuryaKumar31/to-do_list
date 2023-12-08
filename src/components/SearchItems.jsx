@@ -1,15 +1,14 @@
 import React from "react";
-import "./SearchItems.css";
-import { FaSearch } from "react-icons/fa";
+// import { FaSearch } from "react-icons/fa";
 const SearchItems = ({ searchItems, setSearchItems }) => {
   return (
-    <div className="addItems">
-      <form className="searchItems--form" onSubmit={(e) => e.preventDefault()}>
-        <label className="searchIcon" htmlFor="searchIcon">
-          <FaSearch />
-        </label>
+    <div className="mb-6">
+      <form
+        className="flex justify-center items-center"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <input
-          className="searchItems--input b-o-p"
+          className="p-3 rounded w-64 md:w-96 border-none outline-none text-black"
           type="text"
           id="searchIcon"
           placeholder="Search for tasks"

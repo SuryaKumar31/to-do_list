@@ -1,5 +1,4 @@
 import React from "react";
-import "./Header.css";
 const Header = ({ Itemlength }) => {
   // Get the current date
   const currentDate = new Date();
@@ -43,17 +42,15 @@ const Header = ({ Itemlength }) => {
     .padStart(2, "0")} ${month} ${year} ${dayName}`;
   return (
     <div>
-      <div className="header">
-        <div className="header-left">
-          <h3 className="header__title">Today</h3>
-          <h5 className="header__info">{formattedDate}</h5>
+      <div className="flex items-center p-2 justify-between md:gap-64 mb-4">
+        <div className=" p-2 rounded bg-slate-400 text-black al">
+          <h3 className="">Today</h3>
+          <h5 className="">{formattedDate}</h5>
         </div>
-        <div className="header-right">
-          <p className="header-para">
-            <span className="heading-span1">{Itemlength}</span>{" "}
-            <span className="heading-span2">
-              {Itemlength === 1 ? "Task" : "Tasks"}
-            </span>
+        <div className="">
+          <p className=" p-2 rounded hr text-black">
+            <span className="">{Itemlength}</span>{" "}
+            <span className="">{Itemlength === 1 ? "Task" : "Tasks"}</span>
           </p>
         </div>
       </div>

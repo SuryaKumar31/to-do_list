@@ -14,10 +14,41 @@
   list-style-type: none;
 }
 
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
-  background-color: beige;
+  background-color: black;
+  color: white;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.App::before,
+.App::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  border-radius: inherit;
+  animation: rotation 20s linear infinite;
+}
+
+.App::after {
+  filter: blur(1.7rem);
 }
 
 .App {
@@ -25,7 +56,7 @@ body {
   max-width: 700px;
   margin: 0.4rem auto;
   border-radius: 0.5em;
-  background-color: whitesmoke;
+  background-color: rgb(22, 20, 20);
   padding: 0.4rem;
   min-height: 100vh;
   position: relative;
@@ -50,12 +81,6 @@ body {
   filter: blur(1.7rem);
 }
 
-.b-o-p {
-  padding: 1.3em;
-  border: none;
-  outline: none;
-}
-
 @keyframes rotation {
   0% {
     --gradient-angle: 0deg;
@@ -63,4 +88,70 @@ body {
   100% {
     --gradient-angle: 360deg;
   }
+}
+
+.custom-checkbox {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checkmark {
+  font-size: 16px;
+  color: #fff;
+  display: none;
+}
+
+.custom-checkbox.clicked {
+  background-color: #000;
+}
+
+.custom-checkbox.clicked .checkmark {
+  display: block;
+}
+
+.delete-btn {
+  background-color: rgb(238, 51, 51);
+  color: #fff;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ff0000;
+  transition: all 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+  background-color: #d60000;
+  border: 1px solid #d60000;
+  transform: translateY(-1px);
+}
+
+.delete-btn:active {
+  transform: translateY(1px);
+}
+
+.pad {
+  padding: 13px 14px 19px 14px;
+}
+
+.al {
+  box-shadow: 0px 1px 8px 2px rgb(70, 77, 77);
+}
+
+.hr {
+  background: radial-gradient(
+    circle,
+    hsla(190, 79%, 59%, 1) 0%,
+    hsla(198, 70%, 61%, 1) 37%,
+    hsla(200, 67%, 62%, 1) 44%,
+    hsla(209, 60%, 63%, 1) 69%,
+    hsla(226, 50%, 65%, 1) 100%
+  );
+  box-shadow: 0px 1px 8px 2px rgb(113, 221, 216);
 }

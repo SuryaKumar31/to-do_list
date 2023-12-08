@@ -1,14 +1,13 @@
 import React from "react";
-import "./AddItems.css";
 import { FaCirclePlus } from "react-icons/fa6";
 import { useRef } from "react";
 const AddItems = ({ addItems, setAddItems, handleSubmit }) => {
   const reference = useRef();
   return (
-    <div className="addItems">
-      <form className="addItems--form" onSubmit={handleSubmit}>
+    <div className="flex justify-center items-center my-2">
+      <form onSubmit={handleSubmit}>
         <input
-          className="addItems--input b-o-p"
+          className="p-3 rounded-tl rounded-bl w-56 md:w-96 border-none outline-none text-black"
           type="text"
           placeholder="Create a task"
           value={addItems}
@@ -18,10 +17,10 @@ const AddItems = ({ addItems, setAddItems, handleSubmit }) => {
           autoFocus
         />
         <button
-          className="addItems--button b-o-p"
+          className="bg-lime-600 pad rounded-tr rounded-br"
           onClick={() => reference.current.focus()}
         >
-          <FaCirclePlus />
+          <FaCirclePlus className="text-center" />
         </button>
       </form>
     </div>

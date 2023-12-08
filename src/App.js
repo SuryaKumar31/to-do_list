@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import Header from "./components/Header";
+import Main from "./components/Main";
 import { useState } from "react";
-import AddItems from "./components/AddItems/AddItems";
-import SearchItems from "./components/SearchItems/SearchItems";
+import AddItems from "./components/AddItems";
+import SearchItems from "./components/SearchItems";
 
 function App() {
   const [items, setItems] = useState(
@@ -39,8 +39,14 @@ function App() {
     setAddItems("");
   };
   return (
-    <div className="App">
+    <div className="container border border-white pt-5 min-h-screen rounded App">
       <Header Itemlength={items.length} />
+      <AddItems
+        addItems={addItems}
+        setAddItems={setAddItems}
+        handleSubmit={handleSubmit}
+      />
+      <SearchItems searchItems={searchItems} setSearchItems={setSearchItems} />
       <Main
         items={items.filter((item) =>
           item.item.toLowerCase().includes(searchItems.toLowerCase())
@@ -48,12 +54,6 @@ function App() {
         handleChange={handleChange}
         handleDelete={handleDelete}
       />
-      <AddItems
-        addItems={addItems}
-        setAddItems={setAddItems}
-        handleSubmit={handleSubmit}
-      />
-      <SearchItems searchItems={searchItems} setSearchItems={setSearchItems} />
     </div>
   );
 }
